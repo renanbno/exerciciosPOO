@@ -48,6 +48,7 @@ console.log(pessoa2.exibirSaque(3));
 let pessoa3 = new ContaBancaria("Emilly mendiga", 1);
 console.log(pessoa3.exibirSaldo())
 console.log(pessoa3.exibirDeposito(0));
+console.log(pessoa3.exibirDeposito(0));
 console.log(pessoa3.exibirSaque(100000));
 
 
