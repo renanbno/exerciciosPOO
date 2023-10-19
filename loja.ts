@@ -18,11 +18,11 @@ class CarrinhoDeCompras {
     }
 
     excluirProduto(nomeDoProduto: string) {
-        this.produtosDoCarrinho.filter((item) => item.nome !== nomeDoProduto);
-    }
+        this.produtosDoCarrinho = this.produtosDoCarrinho.filter((item) => item.nome !== nomeDoProduto);
+    } 
 
     excluirProduto2(produto: ProdutoLoja) {
-        this.produtosDoCarrinho.filter(item => item.nome !== produto.nome);
+        this.produtosDoCarrinho = this.produtosDoCarrinho.filter(item => item.nome !== produto.nome);
         //excluir produto do carrinho
     }
 
@@ -38,6 +38,7 @@ class CarrinhoDeCompras {
 
     exibirProdutos() {
         console.log("Produtos do Carrinho");
+
         for (let i = 0; i < this.produtosDoCarrinho.length; i++) {
             console.log("Produto: " + this.produtosDoCarrinho[i].nome + " R$ " + this.produtosDoCarrinho[i].preco.toFixed(2));
         }
@@ -65,7 +66,7 @@ class Loja {
     }
 
     adicionarProdutoAoCarrinho(produto: ProdutoLoja) {
-        const produtoEncontrado = this.produtosDoEstoque.find(item => item.nome !== produto.nome)
+        const produtoEncontrado = this.produtosDoEstoque.find(item => item.nome == produto.nome)
         if (produtoEncontrado) {
             this.carrinhoDeCompra.adicionarProduto(produtoEncontrado);
             return "Produto adicionado ao carrinho de comoara";

@@ -14,10 +14,10 @@ class CarrinhoDeCompras {
         this.produtosDoCarrinho.push(produto);
     }
     excluirProduto(nomeDoProduto) {
-        this.produtosDoCarrinho.filter((item) => item.nome !== nomeDoProduto);
+        this.produtosDoCarrinho = this.produtosDoCarrinho.filter((item) => item.nome !== nomeDoProduto);
     }
     excluirProduto2(produto) {
-        this.produtosDoCarrinho.filter(item => item.nome !== produto.nome);
+        this.produtosDoCarrinho = this.produtosDoCarrinho.filter(item => item.nome !== produto.nome);
         //excluir produto do carrinho
     }
     caucularValorTotal() {
@@ -48,7 +48,7 @@ class Loja {
         this.produtosDoEstoque = this.produtosDoEstoque.filter(item => item.nome !== produto.nome);
     }
     adicionarProdutoAoCarrinho(produto) {
-        const produtoEncontrado = this.produtosDoEstoque.find(item => item.nome !== produto.nome);
+        const produtoEncontrado = this.produtosDoEstoque.find(item => item.nome == produto.nome);
         if (produtoEncontrado) {
             this.carrinhoDeCompra.adicionarProduto(produtoEncontrado);
             return "Produto adicionado ao carrinho de comoara";
