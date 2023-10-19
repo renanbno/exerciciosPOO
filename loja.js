@@ -31,7 +31,7 @@ class CarrinhoDeCompras {
     exibirProdutos() {
         console.log("Produtos do Carrinho");
         for (let i = 0; i < this.produtosDoCarrinho.length; i++) {
-            console.log("Produto: " + this.produtosDoCarrinho[i].nome + "R$ " + this.produtosDoCarrinho[i].preco.toFixed(2));
+            console.log("Produto: " + this.produtosDoCarrinho[i].nome + " R$ " + this.produtosDoCarrinho[i].preco.toFixed(2));
         }
     }
 }
@@ -65,21 +65,28 @@ class Loja {
         this.carrinhoDeCompra.exibirProdutos();
     }
 }
+//produtos da loja
 const produtoLoja1 = new ProdutoLoja("camiseta", 20.99);
 const produtoLoja2 = new ProdutoLoja("calça", 44.99);
 const produtoLoja3 = new ProdutoLoja("sapato", 27.99);
-const produtoLoja4 = new ProdutoLoja("mela", 76.39);
+const produtoLoja4 = new ProdutoLoja("mala", 76.39);
 const minhaLoja = new Loja();
+//adicionar os produtos no estoqe da loja 
 minhaLoja.adionarProdutoAoEstoque(produtoLoja1);
 minhaLoja.adionarProdutoAoEstoque(produtoLoja2);
 minhaLoja.adionarProdutoAoEstoque(produtoLoja3);
 minhaLoja.adionarProdutoAoEstoque(produtoLoja4);
+//adiciona os produtos que estão no estoque á o carrinho
 minhaLoja.adicionarProdutoAoCarrinho(produtoLoja1);
 minhaLoja.adicionarProdutoAoCarrinho(produtoLoja2);
 minhaLoja.adicionarProdutoAoCarrinho(produtoLoja3);
 minhaLoja.adicionarProdutoAoCarrinho(produtoLoja4);
+//esse vai remover o produto do carrinho
 minhaLoja.removerProdutoDoCarrinho(produtoLoja4);
+//remove os produtos do estoque caso alguém comprar osu adicionar ao carrinho
 minhaLoja.removerProdutoDoEstoque(produtoLoja4);
+//mostra os produtos que estão no carrinho
 minhaLoja.exibirProdutoDoCarrinho();
+//esse vai fazer a soma do valor do carrinho
 console.log("Total de carrinho de compras: R$ "
     + minhaLoja.carrinhoDeCompra.caucularValorTotal());
